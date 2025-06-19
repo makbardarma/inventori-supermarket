@@ -15,16 +15,17 @@ if (isset($_GET['status_update']) && isset($_GET['id']) && isset($_GET['action']
 
     // Validasi input
     if ($id > 0 && in_array($action, ['accept', 'reject'])) {
-        $newStatus = $action === 'accept' ? 'accepted' : 'rejected';
-        $updateQuery = "UPDATE products SET status = '$newStatus' WHERE id = $id";
+        // Gunakan status yang konsisten dengan sistem
+        $newStatus = ($action === 'accept') ? 'berhasil' : 'ditolak';
 
+        $updateQuery = "UPDATE products SET status = '$newStatus' WHERE id = $id";
         if (mysqli_query($conn, $updateQuery)) {
-            $_SESSION['message'] = "✅ Status berhasil diubah menjadi " . strtoupper($newStatus);
+            $_SESSION['message'] = "✅ Status produk berhasil diubah menjadi: <strong>" . ucfirst($newStatus) . "</strong>.";
         } else {
-            $_SESSION['error'] = "❌ Gagal mengubah status: " . mysqli_error($conn);
+            $_SESSION['error'] = "❌ Gagal mengubah status produk. Error: " . mysqli_error($conn);
         }
     } else {
-        $_SESSION['error'] = "❌ Permintaan update status tidak valid.";
+        $_SESSION['error'] = "❌ Permintaan tidak valid.";
     }
     header("Location: produk.php");
     exit;

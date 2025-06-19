@@ -3,15 +3,18 @@ session_start();
 include '../../includes/database.php';
 $error = '';
 
+
+// Cek apakah user sudah login
 if (isset($_POST['login'])) {
     $usernameOrEmail = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
-
+    // Validasi input
     $query = "SELECT * FROM users WHERE username = '$usernameOrEmail' OR email = '$usernameOrEmail'";
     $result = mysqli_query($conn, $query);
-
-    if (mysqli_num_rows($result) === 1) {
-        $user = mysqli_fetch_assoc($result);
+    // Cek apakah ada user dengan username atau email tersebut
+    if (mysqli_num_rows($result) === 1) { // Jika ada, ambil data user
+        // Ambil data user
+        $user = mysqli_fetch_assoc($result); // Cek apakah password yang dimasukkan sesuai
         if (password_verify($password, $user['password'])) {
             if ($user['role'] === 'user') {
                 $_SESSION['user_id'] = $user['id'];

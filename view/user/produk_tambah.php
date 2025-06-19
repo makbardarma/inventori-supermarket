@@ -13,10 +13,22 @@ $kategoriResult = mysqli_query($conn, "SELECT * FROM categories ORDER BY name AS
 
 $error = '';
 
+
+// === PEMROSESAN FORM KETIKA DISUBMIT ===
+// Mengecek apakah request yang masuk adalah POST (form disubmit)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // === SANITASI DAN VALIDASI INPUT DARI FORM ===
+    // Membersihkan input nama produk dari karakter berbahaya untuk mencegah XSS
     $name = mysqli_real_escape_string($conn, $_POST['name']);
+
+    // Membersihkan input deskripsi produk dari karakter berbahaya
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+
+    // Konversi input stok ke integer untuk memastikan tipe data yang benar
+    // Jika input bukan angka, akan menjadi 0
     $stock = (int) $_POST['stock'];
+
     $price = (float) $_POST['price'];
     $category_id = (int) $_POST['category_id'];
     $user_id = $_SESSION['user_id'];
