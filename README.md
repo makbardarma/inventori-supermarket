@@ -3,7 +3,7 @@
 
 Proyek ini merupakan aplikasi web sederhana untuk mengelola inventaris barang di supermarket. Dibuat menggunakan PHP Native dan MySQL, serta didesain agar mudah digunakan oleh admin maupun user biasa.
 
-## 📌 Fitur Utama
+##  Fitur Utama
 
 - 🔐 Autentikasi Login Admin dan User
 - 📦 CRUD Produk (Tambah, Edit, Hapus, Lihat)
@@ -12,7 +12,7 @@ Proyek ini merupakan aplikasi web sederhana untuk mengelola inventaris barang di
 - 🕒 Informasi Waktu Login dan Aktivitas
 - 👤 Manajemen Data User (oleh Admin)
 
-## 🛠️ Teknologi yang Digunakan
+##  Teknologi yang Digunakan
 
 - PHP Native
 - MySQL
@@ -20,7 +20,7 @@ Proyek ini merupakan aplikasi web sederhana untuk mengelola inventaris barang di
 - Bootstrap 5
 - AdminLTE (jika digunakan)
 
-## 🗂️ Struktur Folder
+##  Struktur Folder
 
 ```
 inventori-supermarket/
@@ -60,4 +60,4 @@ Kontribusi sangat terbuka! Silakan fork repository ini, lakukan perubahan, dan a
 ## 📫 Kontak
 
 Dibuat oleh: [makbardarma](https://github.com/makbardarma)  
-Untuk pertanyaan atau saran, silakan hubungi melalui GitHub atau email.
+Untuk pertanyaan atau saran, silakan hubungi melalui GitHub atau email peermuints@gmail.com 
